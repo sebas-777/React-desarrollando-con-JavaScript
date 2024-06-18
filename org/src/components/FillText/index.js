@@ -1,11 +1,13 @@
 import './FillText.css'
 
-const FillText = () =>{
-    return <div className =" fill-text">
-        <label htmlFor="">Nombre</label>
+const FillText = (props) =>{ 
+    console.log('datos:',props);
+    const placeHolderModificado = `${props.placeholder}...`;
+    return <div className ="fill-text">
+        <label htmlFor="">{props.title}</label>
         <input 
         type="text"
-        placeholder="Ingresar Nombre" 
+        placeholder={placeHolderModificado}
         
         />
     </div>
