@@ -8,6 +8,7 @@ const FillText = (props) =>{
         <input 
         type="text"
         placeholder={placeHolderModificado}
+        required={props.required}
         
         />
     </div>
