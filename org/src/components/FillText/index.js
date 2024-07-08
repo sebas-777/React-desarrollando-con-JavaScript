@@ -1,14 +1,24 @@
+import { useState } from 'react';
 import './FillText.css'
 
 const FillText = (props) =>{ 
-    console.log('datos:',props);
+     const[Value,setValue] = useState("");
+    
     const placeHolderModificado = `${props.placeholder}...`;
+
+    const HandlerChange =(e) =>{
+       
+        props.setValue(e.target.value);
+    }
+
     return <div className ="fill-text">
         <label htmlFor="">{props.title}</label>
         <input 
         type="text"
         placeholder={placeHolderModificado}
-        required={props.required}
+        required={props.required} 
+        value={props.value}
+        onChange={HandlerChange}
         
         />
     </div>

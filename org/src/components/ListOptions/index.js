@@ -1,7 +1,7 @@
 import "./ListOptions.css";
 
 
-const ListOptions = () =>{ 
+const ListOptions = (props) =>{ 
 
     // Metodo map ->arreglo.map((equipo,index) =>{
     //     return <option></option>
@@ -15,11 +15,21 @@ const ListOptions = () =>{
         "UX Y Diseño",
         "Móvil",
         "Innovación y Gestión"
-    ]
+    ] 
+
+    const HandlerChange = (e) =>{
+        props.setTeam(e.target.value)
+    }
     return <div className="list-options"> 
-        <label>Equipos</label>
-    <select >
-       {teams.map((teams,index)=><option key={index}>{teams}</option>)}
+        <label>Teams</label>
+    <select 
+    value={props.value} 
+    onChange={HandlerChange}
+    >
+        <option value="" disabled defaultValue="" hidden>Seleccionar Equipo</option>
+       {teams.map((teams,index)=><option key={index} value={teams}>{teams}
+        
+       </option>)}
     </select>
     </div>
 } 
